@@ -7,8 +7,7 @@ DENA = "ＤｅＮＡ";
 
 # 日付情報から某サイトのURLを取得
 today = datetime.now()
-#topUrl = "https://baseball.yahoo.co.jp/npb/schedule/?date={today:%Y%m%d}"
-topUrl = "https://baseball.yahoo.co.jp/npb/schedule/?date=20170530"
+topUrl = "https://baseball.yahoo.co.jp/npb/schedule/?date={today:%Y%m%d}"
 
 # html及びroot取得
 topHtml = requests.get(topUrl).text
