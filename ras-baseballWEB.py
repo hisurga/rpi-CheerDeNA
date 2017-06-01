@@ -3,8 +3,7 @@ import requests
 from time import sleep
 from datetime import datetime
 
-#DENA = "ＤｅＮＡ"
-DENA = "楽天"
+DENA = "ＤｅＮＡ"
 OUT3 = "●●●"
 
 def fetchScoreUrl():   
