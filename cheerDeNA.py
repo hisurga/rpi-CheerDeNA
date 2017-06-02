@@ -6,12 +6,17 @@ def playMusic():
     pygame.mixer.music.load(".mp3")
     pygame.mixer.music.play(-1)
 
-    time.sleep(60)
+    #time.sleep(60)
 
-    pygame.mixer.music.stop()
+    #pygame.mixer.music.stop()
 
 if __name__ == "__main__":
     forScoreUrl = fetchScoreUrl()
+    playMusic()
+    while True:
+        print("test")
+        time.sleep(10)
+    '''
     if not('/' in forScoreUrl):
         exit
     else:
@@ -33,3 +38,4 @@ if __name__ == "__main__":
                 else:
                     #print(detail + "が打席に立ってます。応援しましょう。")
                     sleep(15)
+    '''
