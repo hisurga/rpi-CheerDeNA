@@ -45,32 +45,33 @@ def fetchGameStatus(forScoreUrl):
         
     # 試合中であった場合batterspanからスライスで背番号を取得し、int型にして返す
     if (DENA in liveNavi) and not(OUT3 in outCount):
-        return(1, scoreRoot.cssselect('#batter span')[0].text_content()[1:])
+        return(scoreRoot.cssselect('#batter span')[0].text_content()[1:])
     elif "試合終了" in liveNavi:
-        return(0, "OVER")
+        return("OVER")
+    elif "試合前" in liveNavi:
+        return("NOTBEGAN")
     else:
-        return(1, "OPPONENT")
+        return("OPPONENT")
     
 if __name__ == "__main__":
     forScoreUrl = fetchScoreUrl()
     if not('/' in forScoreUrl):
+        if "NOGAME" in forScoreUrl:
+            print("今日は試合がないようです。")
+        else:
+            print("今日は試合がまだのようです。")
         exit
+
     else:
         while True:
-            status, detail = fetchGameStatus(forScoreUrl)
+            status = fetchGameStatus(forScoreUrl)
 
-            if status == 0:
-                if "NOGAME" in detail:
-                    print("今日は試合がないようです。")
-                elif "NOTBEGAN" in detail:
-                    print("今日は試合がまだのようです。")
-                else:
-                    print("試合は終了しました。")
-                break
+            if "OPPONENT" in status:
+                print("相手の攻撃中です。")
+                sleep(15)
+            elif "NOTBEGAN" in status:
+                print("今日は試合がまだのようです。")
+                exit()
             else:
-                if "OPPONENT" in detail:
-                    print("相手の攻撃中です。")
-                    sleep(15)
-                else:
-                    print(detail + "が打席に立ってます。応援しましょう。")
-                    sleep(15)
+                print(status + "が打席に立ってます。応援しましょう。")
+                sleep(15)
