@@ -3,7 +3,7 @@ import time
 
 def playMusic():
     pygame.mixer.init()
-    pygame.mixer.music.load(".mp3")
+    pygame.mixer.music.load('')
     pygame.mixer.music.play(-1)
 
     #time.sleep(60)
@@ -11,10 +11,11 @@ def playMusic():
     #pygame.mixer.music.stop()
 
 if __name__ == "__main__":
-    forScoreUrl = fetchScoreUrl()
+    #forScoreUrl = fetchScoreUrl()
     playMusic()
     while True:
         print("test")
+
         time.sleep(10)
     '''
     if not('/' in forScoreUrl):
