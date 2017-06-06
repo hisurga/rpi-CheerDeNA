@@ -15,8 +15,7 @@ def playMusic(number):
         except:
             pygame.mixer.music.load("CheerMusic/migi.mp3")
         pygame.mixer.music.play(1)
-            
-
+    
 if __name__ == "__main__":
     forScoreUrl = fetchScoreUrl()
     if not('/' in forScoreUrl):
@@ -29,10 +28,7 @@ if __name__ == "__main__":
         playMusic("D")
         while True:
             status = fetchGameStatus(forScoreUrl)
-
-            playMusic("51")
             
-            '''
             if "OPPONENT" in status:
                 print("相手の攻撃中です。")
                 sleep(15)
@@ -46,6 +42,3 @@ if __name__ == "__main__":
                 print(status + "が打席に立ってます。応援しましょう。")
                 playMusic(status)
                 sleep(2)
-            '''
-
-                
