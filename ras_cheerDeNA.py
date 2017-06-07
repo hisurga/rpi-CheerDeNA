@@ -1,5 +1,6 @@
 import pygame.mixer
 import time
+import wiringpi
 from ras_baseballWEB import fetchScoreUrl
 from ras_baseballWEB import fetchGameStatus
 
