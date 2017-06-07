@@ -20,7 +20,7 @@ if tdTeam == []:
     print("今日は試合がないようです。")
     exit()
 
-# trの位置からscoreUrlを探したい
+# trの位置からscoreUrlを探す
 tr = tdTeam[0].getparent().getparent()
 
 # scoreUrlの場所はtoday ctの2番目
