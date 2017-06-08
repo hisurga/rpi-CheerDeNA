@@ -1,22 +1,8 @@
-import pygame.mixer
-import time
-import wiringpi
-from ras_baseballWEB import fetchScoreUrl
-from ras_baseballWEB import fetchGameStatus
+from ras_fetchGame import fetchScoreUrl
+from ras_fetchGame import fetchGameStatus
+from ras_playMusic import playMusic
+#import wiringpi
 
-def playMusic(number):
-    if "D" in number:
-        pygame.mixer.init()
-        return
-    path = "CheerMusic/" + number + ".mp3"
-    print(path)
-    if not(pygame.mixer.music.get_busy()):
-        try:
-            pygame.mixer.music.load(path)
-        except:
-            pygame.mixer.music.load("CheerMusic/migi.mp3")
-        pygame.mixer.music.play(1)
-    
 if __name__ == "__main__":
     forScoreUrl = fetchScoreUrl()
     if not('/' in forScoreUrl):
