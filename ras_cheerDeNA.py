@@ -1,7 +1,6 @@
 from ras_fetchGame import fetchScoreUrl
 from ras_fetchGame import fetchGameStatus
 from ras_playMusic import playMusic
-#import wiringpi
 
 forScoreUrl = fetchScoreUrl()
 if not('/' in forScoreUrl):
