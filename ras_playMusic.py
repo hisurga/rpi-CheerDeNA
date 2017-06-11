@@ -5,8 +5,10 @@ def playMusic(number):
     if "D" in number:
         pygame.mixer.init()
         return
+
     path = "CheerMusic/" + number + ".mp3"
     print(path)
+
     if not(pygame.mixer.music.get_busy()):
         try:
             pygame.mixer.music.load(path)
