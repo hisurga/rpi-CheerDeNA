@@ -1,11 +1,11 @@
 #import wiringpi
 
-def initPins():
+def initPin():
     io = wiringpi.GPIO(wiringpi.GPIO.WPI_MODE_SYS)
     io.pinMode(18, io.OUTPUT) 
     return io
 
-def operateFans(io, onoff):
+def operateFan(io, onoff):
     if onoff == 1:
         io.digitalWrite(18, io.HIGH)
     else:
