@@ -1,4 +1,5 @@
-#import wiringpi
+import wiringpi
+from time import sleep
 
 def initPin():
     io = wiringpi.GPIO(wiringpi.GPIO.WPI_MODE_SYS)
@@ -12,4 +13,9 @@ def operateFan(io, onoff):
         io.digitalWrite(18, io.LOW)
     
 if __name__ == "__main__":
-    print("test")
+    io = initPin()
+    while True:
+        operateFan(io, 1)
+        sleep(10)
+        operateFan(io, 0)
+        sleep(10)
