@@ -18,7 +18,7 @@ if __name__ == "__main__":
     while True:
         print("ON")
         operateFan(1)
-        sleep(1)
+        sleep(5)
         print("OFF")
         operateFan(0)
-        sleep(1)
+        sleep(5)
