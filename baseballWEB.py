@@ -1,9 +1,10 @@
+#-*- coding: utf-8 -*-
 import lxml.html
 import requests
-from time import sleep
 from datetime import datetime
+from time import sleep
 
-DENA = "ＤｅＮＡ";
+DENA = "ＤｅＮＡ"
 
 # 日付情報から某サイトのURLを取得
 today = datetime.now()
