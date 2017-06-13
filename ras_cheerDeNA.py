@@ -3,6 +3,7 @@ from ras_fetchGame import fetchGameStatus
 from ras_playMusic import playMusic
 from ras_operateFans import initPin
 from ras_operateFans import operateFan
+from time import sleep
 
 forScoreUrl = fetchScoreUrl()
 
