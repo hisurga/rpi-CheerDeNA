@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 import wiringpi2
 from time import sleep
 

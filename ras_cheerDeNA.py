@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 from ras_fetchGame import fetchScoreUrl
 from ras_fetchGame import fetchGameStatus
 from ras_playMusic import playMusic

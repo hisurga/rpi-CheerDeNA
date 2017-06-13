@@ -1,5 +1,5 @@
+#-*- coding: utf-8 -*-
 import pygame.mixer
-import time
 
 def playMusic(number):
     if "D" in number:
