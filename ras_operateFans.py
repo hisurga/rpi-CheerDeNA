@@ -5,7 +5,7 @@ from time import sleep
 FANPIN = 18
 
 def initPin():
-    wiringpi2.wiringPiSetupSys()
+    wiringpi2.wiringPiSetupGpio()
     wiringpi2.pinMode(FANPIN, 1)
     
 def operateFan(onoff):
