@@ -21,7 +21,7 @@ if tdTeam == []:
     print("今日は試合がないようです。")
     exit()
 
-# trの位置からscoreUrlを探す
+# trの位置からscoreUrlの検索
 tr = tdTeam[0].getparent().getparent()
 
 # scoreUrlの場所はtoday ctの2番目
@@ -35,7 +35,7 @@ scoreUrl = "http://baseball.yahoo.co.jp/live/" + forScoreUrl[0] + "score";
 scoreHtml = requests.get(scoreUrl).text
 scoreRoot = lxml.html.fromstring(scoreHtml)
 
-# liveNaviの場所に{攻撃中のチーム or 試合終了}が表示されている。
+# liveNaviの場所に{攻撃中のチーム or 試合終了}が表示
 liveNavi = scoreRoot.cssselect('#livenavi p')[0].text_content()
 
 # 試合中であった場合、batterspanから背番号取得

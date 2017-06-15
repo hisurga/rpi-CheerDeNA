@@ -19,7 +19,7 @@ def fetchScoreUrl():
     if tdTeam == []:
         return("NOGAME")
 
-    # trの位置からscoreUrlを探したい
+    # trの位置からscoreUrlの検索
     tr = tdTeam[0].getparent().getparent()
 
     # scoreUrlの場所はtoday ctの2番目
