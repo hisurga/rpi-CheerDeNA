@@ -17,7 +17,8 @@ if not('/' in forScoreUrl):
 
 else:
     playMusic("D")
-    initPin()    
+    initPin()
+
     while True:
         status = fetchGameStatus(forScoreUrl)
         

@@ -16,6 +16,7 @@ def operateFan(onoff):
     
 if __name__ == "__main__":
     initPin()
+    
     while True:
         print("ON")
         operateFan(1)
