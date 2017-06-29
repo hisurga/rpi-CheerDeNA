@@ -31,7 +31,7 @@ def fetchScoreUrl():
         return(forScoreUrl[0])
 
 def fetchGameStatus(forScoreUrl):
-    scoreUrl = "http://baseball.yahoo.co.jp/live/" + forScoreUrl + "score";
+    scoreUrl = "http://baseball.yahoo.co.jp/live/" + forScoreUrl + "score"
     scoreHtml = requests.get(scoreUrl).text
     scoreRoot = lxml.html.fromstring(scoreHtml)
     
