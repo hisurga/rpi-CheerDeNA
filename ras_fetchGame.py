@@ -65,7 +65,7 @@ if __name__ == "__main__":
 
             if "OPPONENT" in status:
                 print("相手の攻撃中です。")
-                sleep(15)
+                
             elif "NOTBEGAN" in status:
                 print("今日は試合がまだのようです。")
                 exit()
@@ -74,4 +74,5 @@ if __name__ == "__main__":
                 exit()
             else:
                 print(status + "が打席に立ってます。応援しましょう。")
-                sleep(15)
+            
+            sleep(15)
