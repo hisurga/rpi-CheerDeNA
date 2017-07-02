@@ -75,4 +75,4 @@ if __name__ == "__main__":
             else:
                 print(status + "が打席に立ってます。応援しましょう。")
             
-            sleep(15)
+            sleep(10)
