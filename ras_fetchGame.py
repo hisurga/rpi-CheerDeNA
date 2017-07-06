@@ -11,6 +11,7 @@ def fetchScoreUrl():
     today = datetime.now()
     topUrl = "https://baseball.yahoo.co.jp/npb/schedule/?date={today:%Y%m%d}"
 
+    #取得できないとエラー発生
     topHtml = requests.get(topUrl).text
     topRoot = lxml.html.fromstring(topHtml)
 
@@ -32,12 +33,15 @@ def fetchScoreUrl():
 
 def fetchGameStatus(forScoreUrl):
     scoreUrl = "http://baseball.yahoo.co.jp/live/" + forScoreUrl + "score"
+
+    #取得できないとエラー発生
     scoreHtml = requests.get(scoreUrl).text
     scoreRoot = lxml.html.fromstring(scoreHtml)
     
     liveNavi = scoreRoot.cssselect('#livenavi p')[0].text_content()
 
     outCount = ""
+    
     if(scoreRoot.xpath('//p[@class="o"]/b') != []):
         outCount = scoreRoot.xpath('//p[@class="o"]/b')[0].text_content()
         
