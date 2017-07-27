@@ -6,7 +6,7 @@ class PlayMusic:
     def __init__(self):
         pygame.mixer.init()
 
-    def play(self, number):
+    def play_music(self, number):
         path = "CheerMusic/" + number + ".mp3"
         print(path)
 
