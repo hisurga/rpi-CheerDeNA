@@ -5,38 +5,34 @@ from ras_playMusic import playMusic
 from time import sleep
 import wiringpi2
 
-forScoreUrl = fetchScoreUrl()
+fg = FetchGame()
 
-if not('/' in forScoreUrl):
-    if "NOGAME" in forScoreUrl:
-        print("今日は試合がないようです。")
-    else:
-        print("今日は試合がまだのようです。")        
-    exit
+status = fg.get_game_status()
+
+if not("NOW" in status):
+    print(status)
+    exit()
 
 else:
-    playMusic("D")
+    pm = PlayMusic()
 
     wiringpi2.wiringPiSetupGpio()
     wiringpi2.pinMode(FANPIN, 1)
 
     while True:
-        status = fetchGameStatus(forScoreUrl)
-        
-        if "OPPONENT" in status:
+        batter = fg.fetch_game()
+
+        if batter is None:
+            status = fg.get_game_status()
             wiringpi2.digitalWrite(FANPIN, 0)
-            print("相手の攻撃中です。")
+            print(status)
+            if not("OPPONENT" in status):
+                exit()
             sleep(15)
-        elif "NOTBEGAN" in status:
-            wiringpi2.digitalWrite(FANPIN, 0)
-            print("今日は試合がまだのようです。")
-            exit()
-        elif "OVER" in status:
-            wiringpi2.digitalWrite(FANPIN, 0)
-            print("試合終了！！！！")
-            exit()
+            
         else:
             wiringpi2.digitalWrite(FANPIN, 1)
-            print(status + "が打席に立ってます。応援しましょう。")
-            playMusic(status)
+            print(batter + "が打席に立ってます。応援しましょう。")
+            pm.play_music(status)
             sleep(2)
+        
