@@ -2,7 +2,6 @@
 import pygame.mixer
 
 class PlayMusic:
-
     def __init__(self):
         pygame.mixer.init()
 

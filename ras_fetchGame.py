@@ -5,7 +5,6 @@ from datetime import datetime
 from time import sleep
 
 class FetchGame:
-    
     def __init__(self):
         DENA = "ＤｅＮＡ"
         OUT3 = "●●●"
@@ -31,7 +30,6 @@ class FetchGame:
 
         if for_score_url == []:
             self.game_status = "NOTBEGAN"
-
         else:
             self.game_status = "NOW"
             self.game_url = for_score_url[0]
@@ -47,22 +45,18 @@ class FetchGame:
 
         if(score_root.xpath('//p[@class="o"]/b') != []):
             out_count = score_root.xpath('//p[@class="o"]/b')[0].text_content()
-
         else:
             self.game_status = "NOTBEGAN"
             return None
                     
         if (DENA in live_navi) and not(OUT3 in out_count):
             return(score_root.cssselect('#batter span')[0].text_content()[1:])
-
         elif "試合終了" in live_navi:
             self.game_status = "NOGAME"
             return None
-
         elif "試合前" in live_navi:
             self.game_status = "NOTBEGAN"
             return None
-
         else:
             self.game_status = "OPPONENT"
             return None
@@ -78,14 +72,12 @@ if __name__ == "__main__":
     if not("NOW" in status):
         print(status)
         exit()
-
     else:
         while True:
             batter = fg.fetch_game()
 
             if batter is None:
                 print(fg.get_game_status())
-            
             else:
                 print(batter + "が打席に立ってます。応援しましょう。")
             sleep(10)
